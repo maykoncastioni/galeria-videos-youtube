@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://wyllyan.github.io/tubber/examples.html -->
+<html lang="en" class="">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<link rel="stylesheet" href="jquery.fancybox.css">
+		<link rel="stylesheet" href="style.css">
+	<style type="text/css">.fancybox-margin{margin-right:0px;}</style></head>
+	<body>
+    
+
+
+
+			<div class="example" id="example4">
+				<div class="example-container" id="example4-container">
+          </div>
+				<div class="pagination">
+					<span id="example4-prev-page" class="disabled">&lt; Previous</span>
+					<span id="example4-next-page">Next &gt;</span>
+				</div>
+			</div>
+
+
+
+		<script src="jquery-1.11.2.min.js"></script>
+		<script src="jquery.fancybox.pack.js"></script>
+		<script src="jquery.tubber.min.js"></script>
+		
+		<script>
+			$.fn.tubber.defaults.apiKey = 'AIzaSyAcDkx8UfPhew0UewmxD7dKMIEzJpaU-IY';
+
+			// Example 4 - Gallery with videos opening through the Fancybox
+			$('#example4-container').tubber({
+        channelId:'UCwwnmXVMBNRWhNcdTyU4Byw',
+				itemsPerPage: 10,
+				embedVideo: false,
+				showVideoTitle: true,
+				loadingControl: $('#example4-loading'),
+				prevPageControl: $('#example4-prev-page'),
+				nextPageControl: $('#example4-next-page'),
+				mediaViewer: function (videoId) {
+					$.fancybox.open({
+						type: 'html',
+						content: '<iframe width="720" height="405" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" frameborder="0" allowfullscreen></iframe>',
+						padding: 0,
+						helpers : {
+					        overlay : {
+					            css : {
+					                'background' : 'rgba(0, 0, 0, .85)'
+					            }
+					        }
+					    }
+					});
+				},
+				templates: {
+					thumbnail: '<span class="sobrepor-video"></span><img class="thubnail-video" src="{{image_medium}}">'
+				}
+			});
+
+		</script>
+	
+</body></html>
